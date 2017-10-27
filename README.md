@@ -23,7 +23,9 @@
 
 ## 设置访问连接
 
-```
+* 设置restful链接
+
+	```
     @RestController
     public class HelloController {
     
@@ -32,8 +34,8 @@
             return "hello springboot";
         }
     }
-    
-```
+	    
+	```
 
 ## 配置文件
 
@@ -96,7 +98,8 @@
     ```
     
 ## Controller的使用
-
+| 注解符 | 作用 |
+| --- |--- |
 | @Controller      | 处理http请求 |
 | @RestController  | Spring4之后新加的注解，原来返回json需要@ReponseBody配合@Controller|
 | @RequestMapping  | 配置url映射  |

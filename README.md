@@ -2,17 +2,17 @@
 
 ## 启动方式
 
-1. IDE启动
+### IDE启动
 
 只需要点击RUN按钮
 
-2. 命令行启动
+### 命令行启动
 
 ```
 mvn spring-boot:run
 ```
 
-3. 将工程打包成jar包
+### 将工程打包成jar包
 ```
 mvn install //将工程打包成jar包
 
@@ -36,7 +36,7 @@ public class HelloController {
 
 ## 配置文件
 
-1. 配置属性
+### 配置属性
 
 在application.yml中配置端口访问路径的配置
 
@@ -46,7 +46,7 @@ server:
   context-path: /girl
 ```
 
-2. 在配置文件中设置自定义属性
+### 在配置文件中设置自定义属性
 
 在在application.yml中
 
@@ -77,7 +77,7 @@ public class HelloController {
 }
 ```
 
-3. 设置开发与生产环境两种配置文件
+### 设置开发与生产环境两种配置文件
 
 新建application-dev.yml和application-release.yml两个文件
 分别在两个配置文件中写相应配置，并在application.yml中设置使用哪个配置文件
@@ -88,3 +88,8 @@ spring:
     active: release  
 ```
 
+在命令行中启动不同配置
+
+```
+java -jar girl-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+```

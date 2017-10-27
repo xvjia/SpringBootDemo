@@ -98,7 +98,7 @@
 ## Controller的使用
 
 
-| ------------- |:-------------:|
+| ------------- | -------------:|
 
 | @Controller      | 处理http请求 |
 | @RestController  | Spring4之后新加的注解，原来返回json需要@ReponseBody配合@Controller|

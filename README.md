@@ -100,3 +100,6 @@
 | @Controller      | 处理http请求 |
 | @RestController  | Spring4之后新加的注解，原来返回json需要@ReponseBody配合@Controller|
 | @RequestMapping  | 配置url映射  |
+| @PathVariable    | 获取url中的值 |
+| @RequestParam    | 获取请求参数的值 |
+| @GetMapping      | 组合注解  |

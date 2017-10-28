@@ -153,3 +153,126 @@
       url: jdbc:mysql://192.168.0.114:3306/
   ```
 
+* pom文件配置
+
+  ```
+  <dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-data-jpa</artifactId>
+  		</dependency>
+
+  		<dependency>
+  			<groupId>mysql</groupId>
+  			<artifactId>mysql-connector-java</artifactId>
+  		</dependency>
+  ```
+
+* 设置JpaRepository接口
+
+  ```
+  package com.xvjialing.girl;
+
+  import org.springframework.data.jpa.repository.JpaRepository;
+
+  import java.util.List;
+
+  public interface GirlRepository extends JpaRepository<Girl,Integer>{
+
+      //通过年龄查询
+      public List<Girl> findByAge(int age);
+  }
+  ```
+
+* 增删改查具体实现
+
+  ```
+  package com.xvjialing.girl;
+
+  import org.springframework.beans.factory.annotation.Autowired;
+  import org.springframework.web.bind.annotation.*;
+
+  import java.util.List;
+
+  @RestController
+  public class GirlController {
+
+      @Autowired
+      private GirlRepository girlRepository;
+
+      /**
+       * 获取女生列表
+       * @return
+       */
+      @GetMapping("/girls")
+      public List<Girl> girlList(){
+          return girlRepository.findAll();
+      }
+
+      /**
+       * 添加女生
+       * @param age 年龄
+       * @param name 姓名
+       * @return
+       */
+      @PostMapping("/girls")
+      public Girl addGirl(@RequestParam("age") int age,
+                          @RequestParam("name") String name){
+          Girl girl = new Girl();
+          girl.setAge(age);
+          girl.setName(name);
+
+          return girlRepository.save(girl);
+      }
+
+      /**
+       * 查找女生
+       * @param id
+       * @return
+       */
+      @GetMapping(value = "/girls/{id}")
+      public Girl findOneGirl(@PathVariable("id") int id){
+          return girlRepository.findOne(id);
+      }
+
+      /**
+       * 更新girl
+       * @param id
+       * @param age
+       * @param name
+       * @return
+       */
+      @PutMapping(value = "/girls/{id}")
+      public Girl updateGirl(@PathVariable("id") int id,
+                             @RequestParam("age") int age,
+                             @RequestParam("name") String name){
+          Girl girl = new Girl();
+          girl.setId(id);
+          girl.setAge(age);
+          girl.setName(name);
+          return girlRepository.save(girl);
+      }
+
+      /**
+       * 删除girl
+       * @param id
+       */
+      @DeleteMapping(value = "/girls/{id}")
+      public void deleteGirl(@PathVariable("id") int id){
+          girlRepository.delete(id);
+      }
+
+      /**
+       * 通过女生年龄查询
+       * @param age
+       * @return
+       */
+      @GetMapping(value = "/girls/age/{age}")
+      public List<Girl> girlListByAge(@PathVariable("age") int age){
+          return girlRepository.findByAge(age);
+      }
+  }
+
+  ```
+
+  ​
+

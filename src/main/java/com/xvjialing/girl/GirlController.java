@@ -46,6 +46,13 @@ public class GirlController {
         return girlRepository.findOne(id);
     }
 
+    /**
+     * 更新girl
+     * @param id
+     * @param age
+     * @param name
+     * @return
+     */
     @PutMapping(value = "/girls/{id}")
     public Girl updateGirl(@PathVariable("id") int id,
                            @RequestParam("age") int age,
@@ -55,5 +62,24 @@ public class GirlController {
         girl.setAge(age);
         girl.setName(name);
         return girlRepository.save(girl);
+    }
+
+    /**
+     * 删除girl
+     * @param id
+     */
+    @DeleteMapping(value = "/girls/{id}")
+    public void deleteGirl(@PathVariable("id") int id){
+        girlRepository.delete(id);
+    }
+
+    /**
+     * 通过女生年龄查询
+     * @param age
+     * @return
+     */
+    @GetMapping(value = "/girls/age/{age}")
+    public List<Girl> girlListByAge(@PathVariable("age") int age){
+        return girlRepository.findByAge(age);
     }
 }

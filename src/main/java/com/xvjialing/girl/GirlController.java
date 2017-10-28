@@ -11,6 +11,9 @@ public class GirlController {
     @Autowired
     private GirlRepository girlRepository;
 
+    @Autowired
+    private GirlService girlService;
+
     /**
      * 获取女生列表
      * @return
@@ -81,5 +84,10 @@ public class GirlController {
     @GetMapping(value = "/girls/age/{age}")
     public List<Girl> girlListByAge(@PathVariable("age") int age){
         return girlRepository.findByAge(age);
+    }
+
+    @GetMapping(value = "/girls/addTwo")
+    public void addTwoGirl(){
+        girlService.insertTwo();
     }
 }

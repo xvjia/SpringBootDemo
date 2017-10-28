@@ -1,4 +1,4 @@
-# SpringBoot
+SpringBoot
 
 ## 启动方式
 
@@ -271,8 +271,57 @@
           return girlRepository.findByAge(age);
       }
   }
-
   ```
 
   ​
 
+
+## 事务管理
+
+确保一个事务内的多个操作同时实现或都不实现
+
+* 创建一个Service
+
+  ```
+  package com.xvjialing.girl;
+
+  import org.springframework.beans.factory.annotation.Autowired;
+  import org.springframework.stereotype.Service;
+  import org.springframework.transaction.annotation.Transactional;
+
+  @Service
+  public class GirlService {
+
+      @Autowired
+      private GirlRepository girlRepository;
+
+      @Transactional
+      public void insertTwo(){
+          Girl girlA=new Girl();
+          girlA.setAge(11);
+          girlA.setName("dwdw");
+          girlRepository.save(girlA);
+
+          Girl girlB=new Girl();
+          girlB.setAge(11);
+          girlB.setName("dwdw");
+          girlRepository.save(girlB);
+      }
+  }
+  ```
+
+  千万别忘记加上@Transactional，该注解符用来确保操作同时实现或同时失败
+
+* 在Controller中实现
+
+  ```
+  @Autowired
+      private GirlService girlService;
+
+  @GetMapping(value = "/girls/addTwo")
+      public void addTwoGirl(){
+          girlService.insertTwo();
+      }
+  ```
+
+  ​

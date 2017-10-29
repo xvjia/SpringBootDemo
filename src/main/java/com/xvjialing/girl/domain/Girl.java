@@ -1,4 +1,4 @@
-package com.xvjialing.girl;
+package com.xvjialing.girl.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,5 +1,6 @@
-package com.xvjialing.girl;
+package com.xvjialing.girl.repository;
 
+import com.xvjialing.girl.domain.Girl;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,5 +1,7 @@
-package com.xvjialing.girl;
+package com.xvjialing.girl.service;
 
+import com.xvjialing.girl.domain.Girl;
+import com.xvjialing.girl.repository.GirlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

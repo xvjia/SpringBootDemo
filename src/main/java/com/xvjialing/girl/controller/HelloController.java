@@ -21,7 +21,7 @@ public class HelloController {
         return girlProperties.getCupsize()+girlProperties.getAge()+high;
     }
 
-    @RequestMapping(value = "/hi/{id}")
+    @RequestMapping(value = "/hi/{id}",method = RequestMethod.GET)
     public String hi(@PathVariable("id") int id){
         return "id:"+id;
     }

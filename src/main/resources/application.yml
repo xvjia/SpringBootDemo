@@ -3,9 +3,9 @@ spring:
     active: relese
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://121.196.194.14:3306/springboot
+    url: jdbc:mysql://45.77.159.109:3336/springboot
     username: root
-    password: lytech
+    password: 123456789
   jpa:
     hibernate:
       ddl-auto: update

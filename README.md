@@ -430,4 +430,31 @@ SpringBoot
   ```
 
   ​	完成上述代码添加上，启动Spring Boot程序，访问：<http://localhost:8080/swagger-ui.html>
-  。就能看到前文所展示的RESTful API的页面。我们可以再点开具体的API请求，以POST类型的/users请求为例，可找到上述代码中我们配置的Notes信息以及参数user的描述信息，如下图所示
+  。就能看到前文所展示的RESTful API的页面。我们可以再点开具体的API请求，以POST类型的/users请求为例，可找到上述代码中我们配置的Notes信息以及参数user的描述信息
+
+  ## Hibernate Validator数据校验
+
+  | 注解符                                      | 作用                                       |
+  | ---------------------------------------- | ---------------------------------------- |
+  | @NotNull                                 | 只不能为空                                    |
+  | @NULL                                    | 值必须为空                                    |
+  | @Pattern(Regex=)                         | 字符串必须匹配正则表达式                             |
+  | @Size(min=,max=)                         | 集合的元素数量必须在min和max之间                      |
+  | @CreditCardNumber(igonreNonDigitCharacters=) | 字符串必须是信用卡号（按美国标准）                        |
+  | @Email                                   | 字符串必须是Email地址                            |
+  | @Length(min=,max=)                       | 检查字符串的长度                                 |
+  | @NotBlank                                | 字符串必须有字符                                 |
+  | @NotEmpty                                | 字符串不能为NUll，集合有元素                         |
+  | @Range(min=,max=)                        | 数据必须小于等于max,大于等于min                      |
+  | @SafeHtml                                | 字符串是安全的html                              |
+  | @URL                                     | 字符串是合法的URL                               |
+  | @AssertFalse                             | 值必须是false                                |
+  | @AssertTure                              | 值必须是                                     |
+  | @DecimalMax(value=,inclusive=)           | 值必须小于等于(inclusive=true)/小于(inclusive=false)value指定的值，可以注解在字符串类型的属性上 |
+  | @Digits(integer=,fraction=)              | 数字格式检查。integer指整数部分的最大长度，fraction指小数部分的最大长度。 |
+  | @Futrue                                  | 值必须是未来的日期                                |
+  | @Past                                    | 值必须是过去的日期                                |
+  | @Max(value=)                             | 值必须小于value指定的值。不能注解在字符串类型上               |
+  | @Min(value=)                             | 值必须大于value指定的值。不能注解在字符串类型上               |
+
+  ​
